@@ -1,2 +1,2 @@
-#Call Of Duty landing page with Pre order registration form modal.
+Call Of Duty landing page with Pre order registration form modal.
 
