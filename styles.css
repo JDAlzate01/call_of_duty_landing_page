@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #ff4d4d;
+  --primary-color: #528a63;
   --secondary-color: #2c3e50;
   --text-color: #ffffff;
 }
@@ -11,9 +11,13 @@
 }
 
 body {
+  background: url("./images/cod_bg.png") no-repeat center center/cover;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
+}
+.highlight {
+  color: var(--primary-color);
 }
 
 .hero {
