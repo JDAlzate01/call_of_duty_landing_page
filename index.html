@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Title - Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="overlay"></div>
+        <header>
+            <nav>
+                <div class="logo">GAME TITLE</div>
+                <button class="cta-button">Pre-Register Now</button>
+            </nav>
+        </header>
+
+        <main class="hero-content">
+            <h1>Your Epic Adventure Awaits</h1>
+            <p class="tagline">Be among the first to experience the most anticipated game of the year</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <span>Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <span>Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Register for Early Access</h2>
+            <p>Be the first to play and receive exclusive in-game content!</p>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email">
+                </div>
+                <button type="submit" class="submit-button">Reserve My Spot</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
