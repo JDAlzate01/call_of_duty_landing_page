@@ -11,7 +11,8 @@
 }
 
 body {
-  background: url("./images/cod_bg.png") no-repeat center center/cover;
+  background: url("./images/cod_bg.png") no-repeat center center fixed;
+  background-size: cover;
   font-family: "Arial", sans-serif;
   line-height: 1.6;
   color: var(--text-color);
@@ -26,12 +27,25 @@ body {
   background: url("game-background.jpg") no-repeat center center/cover;
 }
 
-.overlay {
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.overlay {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -73,16 +87,22 @@ nav {
   text-align: center;
   padding: 2rem;
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
+  text-transform: capitalize;
 }
 
 .tagline {
   font-size: 1.5rem;
   margin-bottom: 3rem;
+  letter-spacing: 0.1rem;
 }
 
 .countdown {
@@ -112,13 +132,14 @@ h1 {
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
   position: relative;
   background: var(--secondary-color);
   max-width: 500px;
-  margin: 15vh auto;
   padding: 2rem;
   border-radius: 10px;
 }
@@ -129,10 +150,11 @@ h1 {
   top: 1rem;
   font-size: 1.5rem;
   cursor: pointer;
+  color: var(--primary-color);
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .form-group label {

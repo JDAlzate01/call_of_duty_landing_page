@@ -6,7 +6,7 @@ const form = document.getElementById("registrationForm");
 
 // Open modal
 ctaButton.addEventListener("click", () => {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 });
 
 // Close modal
@@ -21,64 +21,38 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Form submission
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value;
-
-  try {
-    // Here you would typically send the email to your backend
-    // This is a mock API call
-    await mockApiCall(email);
-
-    alert("Thank you for registering! Check your email for confirmation.");
-    modal.style.display = "none";
-    form.reset();
-  } catch (error) {
-    alert("There was an error. Please try again.");
-  }
-});
-
-// Mock API call function
-function mockApiCall(email) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ success: true });
-    }, 1000);
-  });
-}
-
 // Countdown timer
 function updateCountdown() {
-  // Set the launch date (example: 3 months from now)
-  const launchDate = new Date();
-  launchDate.setMonth(launchDate.getMonth() + 3);
+  // Set a fixed end date (December 31, 2023)
+  const endDate = new Date("December 31, 2026");
+  const today = new Date();
 
-  const currentDate = new Date();
-  const difference = launchDate - currentDate;
+  // Get total seconds between the dates
+  let secondsLeft = (endDate - today) / 1000;
 
-  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  );
-  const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+  // Calculate days, hours, minutes and seconds
+  let days = Math.floor(secondsLeft / (24 * 60 * 60));
+  secondsLeft = secondsLeft % (24 * 60 * 60);
 
-  document.getElementById("days").textContent = days
-    .toString()
-    .padStart(2, "0");
-  document.getElementById("hours").textContent = hours
-    .toString()
-    .padStart(2, "0");
-  document.getElementById("minutes").textContent = minutes
-    .toString()
-    .padStart(2, "0");
-  document.getElementById("seconds").textContent = seconds
-    .toString()
-    .padStart(2, "0");
+  let hours = Math.floor(secondsLeft / (60 * 60));
+  secondsLeft = secondsLeft % (60 * 60);
+
+  let minutes = Math.floor(secondsLeft / 60);
+  let seconds = Math.floor(secondsLeft % 60);
+
+  // Add leading zeros if needed (e.g., 9 becomes 09)
+  if (days < 10) days = "0" + days;
+  if (hours < 10) hours = "0" + hours;
+  if (minutes < 10) minutes = "0" + minutes;
+  if (seconds < 10) seconds = "0" + seconds;
+
+  // Update the display
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
 }
 
-// Update countdown every second
+// Update the countdown every second
 setInterval(updateCountdown, 1000);
-updateCountdown(); // Initial call
+updateCountdown(); // Run it once immediately
